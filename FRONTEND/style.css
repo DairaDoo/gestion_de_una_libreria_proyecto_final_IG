@@ -1,0 +1,15 @@
+.bg-black {
+    background-color: #000; /* Black color */
+    color: #fff; /* White text color */
+}
+
+.nav-link {
+    border: 1px solid white; /* Sets the border color to white and thickness to 1px */
+    padding: 5px 10px; /* Adds padding to make the border and text look nice */
+    border-radius: 5px; /* Optional: Adds rounded corners to the border */
+}
+
+.nav-link:hover {
+    background-color: grey; /* Grey background on hover */
+    color: white; /* Keeps the text white for readability */
+}
