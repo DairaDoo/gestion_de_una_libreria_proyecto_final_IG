@@ -1,0 +1,1 @@
+# esto es solo para que se vea la carpeta BACKEND, se debe borrar luego cuando se inicialize con flask. 
