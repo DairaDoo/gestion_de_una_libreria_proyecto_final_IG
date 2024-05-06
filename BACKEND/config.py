@@ -1,7 +1,7 @@
 DATABASE_CONFIG = {
-    'host': 'ipadua8377@arecibo.inter.edu@linux-vm9',
+    'host': '172.16.5.80',
     'port': 3306,
-    'user': 'Dairan',
+    'user': 'DairanDoo',
     'password' : 'Pancho',
     'database': 'Prueba_BookVault'
 }

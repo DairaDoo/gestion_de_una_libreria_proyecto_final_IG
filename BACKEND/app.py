@@ -5,27 +5,28 @@ from config import DATABASE_CONFIG
 
 app = Flask(__name__)
 
-# Connecion a la base de datos
+# Conexión a la base de datos
 try:
     connection = mariadb.connect(**DATABASE_CONFIG)
+    cursor = connection.cursor()
 except mariadb.Error as e:
-    print("Error al conectarse a la base de datos MariaDB.")
+    print(f"Error al conectarse a la base de datos MariaDB: {e}")
     sys.exit(1)
-
-
-cursor = connection.cursor()
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return '¡Hola, mundo!'
 
 @app.route('/api/allUsers')
 def get_users():
-    """Esta funcion retorna todos los usuarios de la base de datos."""
-    cursor.execute("SELECT * FROM Prueba_BookVault")
-    users = cursor.fetchall()
-    return jsonify(users)
-    
+    """Esta función retorna todos los usuarios de la base de datos."""
+    try:
+        cursor.execute("SELECT * FROM Usuarios")
+        users = cursor.fetchall()
+        return jsonify(users)
+    except mariadb.Error as e:
+        print(f"Error al ejecutar la consulta SQL: {e}")
+        return jsonify({'error': 'Error al ejecutar la consulta SQL'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
